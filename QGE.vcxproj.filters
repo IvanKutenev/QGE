@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <FxCompile Include="FX\Blur.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\Definitions.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\Effects.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\EnvMap.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\Fire.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\GIClearGrid.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\GICreateVPL.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\GIDefinitions.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\GIPropagateVPL.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\OIT.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\OITSort.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\OITDefinitions.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\ParticleDefinitions.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\Rain.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\Ssao.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\SsaoBlur.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\SSLRPreIntegrate.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\VolumetricEffects.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\VolumetricDefinitions.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\SSLRPreConvolution.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\SSLRConeTracing.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\SSLRBuildHiZ.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\SSLRRayTracing.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\GPUCollisionDefinitions.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\GPUCollisionDetect.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\GPUCollisionBuildGrid.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\SVODefinitions.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\SVOTraceRays.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\SPHFluidSort.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\SPHFluidCompute.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\SPHFluidGenerateSurface.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="FX\SPHFluidDefinitions.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Bin\Core\QGE_Core.cpp">
+      <Filter>Bin\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GUI\GUI.cpp">
+      <Filter>Bin\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\Common\d3dUtil.cpp">
+      <Filter>Bin\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\Common\GameTimer.cpp">
+      <Filter>Bin\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\Common\GeometryGenerator.cpp">
+      <Filter>Bin\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\Common\LightHelper.cpp">
+      <Filter>Bin\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\Common\MathHelper.cpp">
+      <Filter>Bin\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\Blur.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\BlurFilter.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\Camera.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\FBXLoader.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\GlobalIllumination.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\MeshManager.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\OIT.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\ParticleSystem.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\PlanarWaterSurface.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\PPLL.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\QGE_GPU_Framework.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\RenderStates.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\ShadowMapping.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\SPH.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\Ssao.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\SSLR.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\Terrain.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\VolumetricEffect.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\CPU_Framework\Car.cpp">
+      <Filter>Bin\CPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\CPU_Framework\GameLogic.cpp">
+      <Filter>Bin\CPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\CPU_Framework\Track.cpp">
+      <Filter>Bin\CPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\GPUCollision.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\EnvironmentMap.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Bin\GPU_Framework\SVOPipeline.cpp">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Bin\Core\QGE_Core.h">
+      <Filter>Bin\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GUI\GUI.h">
+      <Filter>Bin\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\audiodefs.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\comdecl.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D2D1.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D2D1Helper.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D2DBaseTypes.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D2Derr.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\d3d9.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\d3d9caps.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\d3d9types.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D3D10.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D3D10_1.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D3D10_1shader.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D3D10effect.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\d3d10misc.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\d3d10sdklayers.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D3D10shader.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D3D11.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D3D11SDKLayers.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D3D11Shader.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D3Dcommon.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D3Dcompiler.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D3DCSX.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\d3dUtil.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\d3dx9.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\d3dx9anim.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\d3dx9core.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\d3dx9effect.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\d3dx9math.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\d3dx9mesh.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\d3dx9shader.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\d3dx9shape.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\d3dx9tex.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\d3dx9xof.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D3DX10.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\d3dx10async.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D3DX10core.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D3DX10math.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D3DX10mesh.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D3DX10tex.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D3DX11.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D3DX11async.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D3DX11core.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\d3dx11dbg.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\d3dx11effect.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\D3DX11tex.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\d3dxGlobal.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\Dcommon.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\dinput.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\dinputd.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\dsconf.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\dsetup.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\dsound.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\DWrite.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\dxdiag.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\dxfile.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\DXGI.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\DXGIFormat.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\DXGIType.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\dxsdkver.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\GameTimer.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\gameux.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\GeometryGenerator.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\LightHelper.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\MathHelper.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\PIXPlugin.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\resource.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\rmxfguid.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\rmxftmpl.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\rpcsal.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\X3DAudio.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\xact3.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\xact3d3.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\xact3wb.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\XAPO.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\XAPOBase.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\XAPOFX.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\XAudio2.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\XAudio2fx.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\XDSP.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\XInput.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\xma2defs.h">
+      <Filter>Bin\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\Blur.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\BlurFilter.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\Camera.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\FBXLoader.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\GlobalIllumination.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\HelperTypes.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\Materials.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\Menu.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\MeshManager.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\OIT.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\ParticleSystem.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\PlanarWaterSurface.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\PPLL.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\QGE_GPU_Framework.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\RenderStates.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\resource.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\ShadowMapping.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\SPH.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\Ssao.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\SSLR.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\Terrain.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\VolumetricEffect.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\CPU_Framework\Car.h">
+      <Filter>Bin\CPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\CPU_Framework\GameLogic.h">
+      <Filter>Bin\CPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\CPU_Framework\Track.h">
+      <Filter>Bin\CPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\GPUCollision.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\EnvironmentMap.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\GPU_Framework\SVOPipeline.h">
+      <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="FX">
+      <UniqueIdentifier>{cd734c7e-765a-4d60-854b-074630075b82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bin">
+      <UniqueIdentifier>{e0405564-7d56-47c6-a5e2-c5ad8aff8ed2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bin\Core">
+      <UniqueIdentifier>{02223fcd-4624-4f08-bfda-774485bd8a5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bin\GUI">
+      <UniqueIdentifier>{6cfb496d-ff64-40b5-a668-4097741b775c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bin\Common">
+      <UniqueIdentifier>{274fd904-5241-4e7a-9688-b8a3f3d76a7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bin\GPU_Framework">
+      <UniqueIdentifier>{53e6f175-c5d7-47a1-b990-ea9c46cfd9ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bin\CPU_Framework">
+      <UniqueIdentifier>{b1bf569c-0de1-4950-95a6-947248059b7b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Bin\Common\D3DX_DXGIFormatConvert.inl">
+      <Filter>Bin\Common</Filter>
+    </None>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="QGE.rc" />
+  </ItemGroup>
+</Project>

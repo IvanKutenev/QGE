@@ -1,0 +1,525 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="All Configurations|Win32">
+      <Configuration>All Configurations</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="All Configurations|x64">
+      <Configuration>All Configurations</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{415A387B-CAA1-453C-9C2F-EAAF8094859E}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>InitDirect3D</RootNamespace>
+    <ProjectName>QGE</ProjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='All Configurations|Win32'">
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='All Configurations|x64'">
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir)\Common;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Common;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Users\kuten\Documents\Visual Studio 2015\Projects\QGE\Bin\Common;C:\Program Files\Autodesk\FBX\FBX SDK\2016.1.2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\kuten\Documents\Visual Studio 2015\Projects\QGE\Bin\Common;C:\Program Files\Autodesk\FBX\FBX SDK\2016.1.2\lib\vs2015\x86\release;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Utilities\bin\x64;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)\DirectXTex;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64;$(SolutionDir)\Common;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>d3d11.lib;d2d1.lib;dwrite.lib;d3dx11d.lib;D3DCompiler.lib;Effects11d.lib;dxerr.lib;dxgi.lib;dxguid.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)\DirectXTex;C:\Program Files %28x86%29\Windows Kits\10\Include\10.0.10586.0\um;C:\Program Files %28x86%29\Windows Kits\10\Include\10.0.10586.0\shared;$(SolutionDir)\MathGeoLib\MathGeoLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>d3d11.lib;d3d10_1.lib;d2d1.lib;dwrite.lib;D3DCompiler.lib;Effects11.lib;dxgi.lib;dxguid.lib;libfbxsdk-md.lib;wininet.lib;DirectXTex.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files\Autodesk\FBX\FBX SDK\2016.1.2\lib\vs2015\x86\release;C:\Users\kuten\Documents\Visual Studio 2015\Projects\QGE\Bin\Common;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>LIBCMT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='All Configurations|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)\DirectXTex;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)\DirectXTex;C:\Program Files %28x86%29\Windows Kits\10\Include\10.0.10586.0\um;$(SolutionDir)\Common;C:\Program Files\Autodesk\FBX\FBX SDK\2016.1.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>_WIN64;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Program Files\Autodesk\FBX\FBX SDK\2016.1.2\lib\vs2015\x64\release;$(SolutionDir)\Common;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>d3d11.lib;D3DCompiler.lib;Effects11.lib;dxgi.lib;dxguid.lib;libfbxsdk-md.lib;wininet.lib;DirectXTex.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>LIBCMT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Bin\Common\d3dUtil.cpp" />
+    <ClCompile Include="Bin\Common\GameTimer.cpp" />
+    <ClCompile Include="Bin\Common\GeometryGenerator.cpp" />
+    <ClCompile Include="Bin\Common\LightHelper.cpp" />
+    <ClCompile Include="Bin\Common\MathHelper.cpp" />
+    <ClCompile Include="Bin\Core\QGE_Core.cpp" />
+    <ClCompile Include="Bin\CPU_Framework\Car.cpp" />
+    <ClCompile Include="Bin\CPU_Framework\GameLogic.cpp" />
+    <ClCompile Include="Bin\CPU_Framework\Track.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\Blur.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\BlurFilter.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\Camera.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\EnvironmentMap.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\FBXLoader.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\GlobalIllumination.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\GPUCollision.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\MeshManager.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\OIT.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\ParticleSystem.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\PlanarWaterSurface.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\PPLL.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\QGE_GPU_Framework.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\RenderStates.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\ShadowMapping.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\SPH.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\Ssao.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\SSLR.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\SVOPipeline.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\Terrain.cpp" />
+    <ClCompile Include="Bin\GPU_Framework\VolumetricEffect.cpp" />
+    <ClCompile Include="Bin\GUI\GUI.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Bin\Common\audiodefs.h" />
+    <ClInclude Include="Bin\Common\comdecl.h" />
+    <ClInclude Include="Bin\Common\D2D1.h" />
+    <ClInclude Include="Bin\Common\D2D1Helper.h" />
+    <ClInclude Include="Bin\Common\D2DBaseTypes.h" />
+    <ClInclude Include="Bin\Common\D2Derr.h" />
+    <ClInclude Include="Bin\Common\D3D10.h" />
+    <ClInclude Include="Bin\Common\D3D10effect.h" />
+    <ClInclude Include="Bin\Common\d3d10misc.h" />
+    <ClInclude Include="Bin\Common\d3d10sdklayers.h" />
+    <ClInclude Include="Bin\Common\D3D10shader.h" />
+    <ClInclude Include="Bin\Common\D3D10_1.h" />
+    <ClInclude Include="Bin\Common\D3D10_1shader.h" />
+    <ClInclude Include="Bin\Common\D3D11.h" />
+    <ClInclude Include="Bin\Common\D3D11SDKLayers.h" />
+    <ClInclude Include="Bin\Common\D3D11Shader.h" />
+    <ClInclude Include="Bin\Common\d3d9.h" />
+    <ClInclude Include="Bin\Common\d3d9caps.h" />
+    <ClInclude Include="Bin\Common\d3d9types.h" />
+    <ClInclude Include="Bin\Common\D3Dcommon.h" />
+    <ClInclude Include="Bin\Common\D3Dcompiler.h" />
+    <ClInclude Include="Bin\Common\D3DCSX.h" />
+    <ClInclude Include="Bin\Common\d3dUtil.h" />
+    <ClInclude Include="Bin\Common\D3DX10.h" />
+    <ClInclude Include="Bin\Common\d3dx10async.h" />
+    <ClInclude Include="Bin\Common\D3DX10core.h" />
+    <ClInclude Include="Bin\Common\D3DX10math.h" />
+    <ClInclude Include="Bin\Common\D3DX10mesh.h" />
+    <ClInclude Include="Bin\Common\D3DX10tex.h" />
+    <ClInclude Include="Bin\Common\D3DX11.h" />
+    <ClInclude Include="Bin\Common\D3DX11async.h" />
+    <ClInclude Include="Bin\Common\D3DX11core.h" />
+    <ClInclude Include="Bin\Common\d3dx11dbg.h" />
+    <ClInclude Include="Bin\Common\d3dx11effect.h" />
+    <ClInclude Include="Bin\Common\D3DX11tex.h" />
+    <ClInclude Include="Bin\Common\d3dx9.h" />
+    <ClInclude Include="Bin\Common\d3dx9anim.h" />
+    <ClInclude Include="Bin\Common\d3dx9core.h" />
+    <ClInclude Include="Bin\Common\d3dx9effect.h" />
+    <ClInclude Include="Bin\Common\d3dx9math.h" />
+    <ClInclude Include="Bin\Common\d3dx9mesh.h" />
+    <ClInclude Include="Bin\Common\d3dx9shader.h" />
+    <ClInclude Include="Bin\Common\d3dx9shape.h" />
+    <ClInclude Include="Bin\Common\d3dx9tex.h" />
+    <ClInclude Include="Bin\Common\d3dx9xof.h" />
+    <ClInclude Include="Bin\Common\d3dxGlobal.h" />
+    <ClInclude Include="Bin\Common\Dcommon.h" />
+    <ClInclude Include="Bin\Common\dinput.h" />
+    <ClInclude Include="Bin\Common\dinputd.h" />
+    <ClInclude Include="Bin\Common\dsconf.h" />
+    <ClInclude Include="Bin\Common\dsetup.h" />
+    <ClInclude Include="Bin\Common\dsound.h" />
+    <ClInclude Include="Bin\Common\DWrite.h" />
+    <ClInclude Include="Bin\Common\dxdiag.h" />
+    <ClInclude Include="Bin\Common\dxfile.h" />
+    <ClInclude Include="Bin\Common\DXGI.h" />
+    <ClInclude Include="Bin\Common\DXGIFormat.h" />
+    <ClInclude Include="Bin\Common\DXGIType.h" />
+    <ClInclude Include="Bin\Common\dxsdkver.h" />
+    <ClInclude Include="Bin\Common\GameTimer.h" />
+    <ClInclude Include="Bin\Common\gameux.h" />
+    <ClInclude Include="Bin\Common\GeometryGenerator.h" />
+    <ClInclude Include="Bin\Common\LightHelper.h" />
+    <ClInclude Include="Bin\Common\MathHelper.h" />
+    <ClInclude Include="Bin\Common\PIXPlugin.h" />
+    <ClInclude Include="Bin\Common\resource.h" />
+    <ClInclude Include="Bin\Common\rmxfguid.h" />
+    <ClInclude Include="Bin\Common\rmxftmpl.h" />
+    <ClInclude Include="Bin\Common\rpcsal.h" />
+    <ClInclude Include="Bin\Common\X3DAudio.h" />
+    <ClInclude Include="Bin\Common\xact3.h" />
+    <ClInclude Include="Bin\Common\xact3d3.h" />
+    <ClInclude Include="Bin\Common\xact3wb.h" />
+    <ClInclude Include="Bin\Common\XAPO.h" />
+    <ClInclude Include="Bin\Common\XAPOBase.h" />
+    <ClInclude Include="Bin\Common\XAPOFX.h" />
+    <ClInclude Include="Bin\Common\XAudio2.h" />
+    <ClInclude Include="Bin\Common\XAudio2fx.h" />
+    <ClInclude Include="Bin\Common\XDSP.h" />
+    <ClInclude Include="Bin\Common\XInput.h" />
+    <ClInclude Include="Bin\Common\xma2defs.h" />
+    <ClInclude Include="Bin\Core\QGE_Core.h" />
+    <ClInclude Include="Bin\CPU_Framework\Car.h" />
+    <ClInclude Include="Bin\CPU_Framework\GameLogic.h" />
+    <ClInclude Include="Bin\CPU_Framework\Track.h" />
+    <ClInclude Include="Bin\GPU_Framework\Blur.h" />
+    <ClInclude Include="Bin\GPU_Framework\BlurFilter.h" />
+    <ClInclude Include="Bin\GPU_Framework\Camera.h" />
+    <ClInclude Include="Bin\GPU_Framework\EnvironmentMap.h" />
+    <ClInclude Include="Bin\GPU_Framework\FBXLoader.h" />
+    <ClInclude Include="Bin\GPU_Framework\GlobalIllumination.h" />
+    <ClInclude Include="Bin\GPU_Framework\GPUCollision.h" />
+    <ClInclude Include="Bin\GPU_Framework\HelperTypes.h" />
+    <ClInclude Include="Bin\GPU_Framework\Materials.h" />
+    <ClInclude Include="Bin\GPU_Framework\Menu.h" />
+    <ClInclude Include="Bin\GPU_Framework\MeshManager.h" />
+    <ClInclude Include="Bin\GPU_Framework\OIT.h" />
+    <ClInclude Include="Bin\GPU_Framework\ParticleSystem.h" />
+    <ClInclude Include="Bin\GPU_Framework\PlanarWaterSurface.h" />
+    <ClInclude Include="Bin\GPU_Framework\PPLL.h" />
+    <ClInclude Include="Bin\GPU_Framework\QGE_GPU_Framework.h" />
+    <ClInclude Include="Bin\GPU_Framework\RenderStates.h" />
+    <ClInclude Include="Bin\GPU_Framework\resource.h" />
+    <ClInclude Include="Bin\GPU_Framework\ShadowMapping.h" />
+    <ClInclude Include="Bin\GPU_Framework\SPH.h" />
+    <ClInclude Include="Bin\GPU_Framework\Ssao.h" />
+    <ClInclude Include="Bin\GPU_Framework\SSLR.h" />
+    <ClInclude Include="Bin\GPU_Framework\SVOPipeline.h" />
+    <ClInclude Include="Bin\GPU_Framework\Terrain.h" />
+    <ClInclude Include="Bin\GPU_Framework\VolumetricEffect.h" />
+    <ClInclude Include="Bin\GUI\GUI.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="FX\Blur.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">HorzBlur</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">HorzBlurCS</EntryPointName>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">HorzBlurCS</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\Definitions.fx">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+    </FxCompile>
+    <FxCompile Include="FX\Effects.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">BasicTech</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <DisableOptimizations Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</DisableOptimizations>
+      <EnableDebuggingInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</EnableDebuggingInformation>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">BasicTech</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\EnvMap.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnvMapTech</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">EnvMapTech</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">EnvMapTech</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\Fire.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\GIClearGrid.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\GICreateVPL.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\GIDefinitions.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\GIPropagateVPL.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\GPUCollisionBuildGrid.fx">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\GPUCollisionDefinitions.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\GPUCollisionDetect.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\OIT.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\OITDefinitions.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\OITSort.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\ParticleDefinitions.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\Rain.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\SPHFluidDefinitions.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\SPHFluidGenerateSurface.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\Ssao.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+    </FxCompile>
+    <FxCompile Include="FX\SsaoBlur.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\SSLRBuildHiZ.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\SSLRConeTracing.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\SSLRPreConvolution.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\SSLRPreIntegrate.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\SSLRRayTracing.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\SVODefinitions.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\SVOTraceRays.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\VolumetricDefinitions.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\VolumetricEffects.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\SPHFluidCompute.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="FX\SPHFluidSort.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="DirectXTex\DirectXTex_Desktop_2015.vcxproj">
+      <Project>{371b9fa9-4c90-4ac6-a123-aced756d6c77}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Bin\Common\D3DX_DXGIFormatConvert.inl" />
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="QGE.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
