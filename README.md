@@ -9,6 +9,7 @@ This is a mostly graphics engine, which includes following technologies:
     - SSAO (Screen Space Ambient Occlusion);
     - SSR (Screen Space Reflections);
     - OIT (Order Independent Transparency);
+    - Cascaded PCSS (Percentage Closer Soft Shadows);
     - Voxel-based global illumination using light propagation volumes;
     - Voxel-based volumetric effects (clouds, fog);
     - SVO (Sparse Voxel Octree) realtime ray tracer;
