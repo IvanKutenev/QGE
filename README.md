@@ -18,7 +18,7 @@ This is a mostly graphics engine, which includes following technologies:
     - Particle systems (rain, fire);
     - Environment mapping.
 - Physics:
-    - GPU fluid simulation using SPH (Smooth Particles Hydrodynamics);
+    - GPU fluid simulation using SPH (Smooth Particles Hydrodynamics) with GS+blur/marching cubes surface reconstruction;
     - GPU voxel-based body collision physics.
     
 Engine is written in C++ and HLSL using DirectX 11.
