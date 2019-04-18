@@ -1,4 +1,4 @@
-# QGE (Quantun Game engine)
+# QGE (Quantun Game Engine)
 This is a mostly graphics engine, which includes following technologies:
   - Meshes:
     - FBX mesh loader;
