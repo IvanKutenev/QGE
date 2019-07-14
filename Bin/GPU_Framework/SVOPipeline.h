@@ -14,7 +14,7 @@
 //magic constants
 #define FLOAT_EPSILON 0.00000001
 //SVO parameters
-#define SVO_LEVELS_COUNT 10
+#define SVO_LEVELS_COUNT 9
 #define SVO_VOXEL_BLOCK_SIDE_SZ 2
 #define SVO_BUILD_RT_SZ (2 << (SVO_LEVELS_COUNT - 1)) * SVO_VOXEL_BLOCK_SIDE_SZ
 #define SVO_VOXEL_BLOCK_SZ SVO_VOXEL_BLOCK_SIDE_SZ * SVO_VOXEL_BLOCK_SIDE_SZ * SVO_VOXEL_BLOCK_SIDE_SZ
@@ -25,15 +25,25 @@
 #define RAY_CASTER_MAX_LEVEL_IDX SVO_LEVELS_COUNT - 1
 #define RESET_SVO_NUM_THREADS 512.0f
 #define GEN_MIPS_NUM_THREADS 512.0f
-#define REFLECTION_MAP_MASK_SAMPLE_LEVEL 5
+#define REFLECTION_MAP_MASK_SAMPLE_LEVEL 5 // must be equal or greater thean 1
+#define ENV_MAP_MIP_LEVELS_COUNT 10 
 //buffers parameters
 #define MAX_NODES_COUNT 1.0 / 7.0 * (pow(8, SVO_LEVELS_COUNT + 1) - 1)
 #define MAX_VOXELS_COUNT MAX_NODES_COUNT * SVO_VOXEL_BLOCK_SZ
-#define MAX_FILL_FRACTION 250.0f
+#define MAX_FILL_FRACTION 10.0f
 #define NODES_COUNT round(MAX_NODES_COUNT / MAX_FILL_FRACTION)
 #define VOXELS_COUNT round(MAX_VOXELS_COUNT / MAX_FILL_FRACTION)
+//ray tracing parameters
+#define CONE_THETA 0.06f
+#define MAX_STEP_MULTIPLIER 1.0f
+#define MIN_STEP_MULTIPLIER 0.5f
+#define WEIGHT_MULTIPLIER 0.25f
+#define ALPHA_CLAMP_VALUE 0.5f
+#define ALPHA_MULTIPLIER 2.0f
+#define MAX_ITER_COUNT 128
 
-//Add terrain SVO build shader!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//TODO:
+// --write voxels if and only if they are bigger than pix by pix square after screen projection!
 
 struct SvoDebugDrawVsIn
 {

@@ -8,7 +8,7 @@
 //magic constants
 #define FLOAT_EPSILON 0.001f
 //SVO parameters
-#define SVO_LEVELS_COUNT 10
+#define SVO_LEVELS_COUNT 9//10
 #define SVO_VOXEL_BLOCK_SIDE_SZ 2
 static const float SVO_BUILD_RT_SZ = (2 << (SVO_LEVELS_COUNT - 1)) * SVO_VOXEL_BLOCK_SIDE_SZ;
 static const int SVO_VOXEL_BLOCK_SZ = SVO_VOXEL_BLOCK_SIDE_SZ * SVO_VOXEL_BLOCK_SIDE_SZ * SVO_VOXEL_BLOCK_SIDE_SZ;
@@ -533,7 +533,7 @@ float4 traceVoxelBlockPos(float3 rayOrigin, float3 rayDir, SvoNode curNode)
 }
 
 //(pos, status): status > 0 - success, status < 0 - no geometry
-float4 traceReflectionPos(float3 rayOrigin, float3 rayDir, int maxTracingLevelsCount)
+float4 traceRayPos(float3 rayOrigin, float3 rayDir, int maxTracingLevelsCount)
 {
 	float3 d = normalize(rayDir);
 	float3 o = rayOrigin;
@@ -694,7 +694,7 @@ float4 SampleOctreeEx(float3 PosW, float samplingLvl, bool normalize)
 // get cone ray parameter from current radius
 float coneParam(float r, float alpha)
 {
-	return r / tan(alpha);
+	return r / (tan(alpha) + FLOAT_EPSILON);
 }
 // get cone tracing step corresponding to current cone radius
 float coneStep(float svoLevelIdx)
@@ -737,10 +737,8 @@ float3 traceSpecularVoxelCone(float3 o, float3 d, float t_max, bool isFiniteDist
 		t += coneStep(enclosingLvlIdx);
 	}
 
-	totalColor.a = saturate(totalColor.a);
+	totalColor.a = saturate(totalColor.a + FLOAT_EPSILON);
+	totalColor.rgb /= totalColor.a;
 
-	if (totalColor.a > 0.0f)
-		totalColor.rgb /= totalColor.a;
-
-	return lerp(gEnvironmentMap.SampleLevel(samEnvMap, d, getEnvMipMapLvl(enclosingSvoLevelIdxEx(coneRadius(SVO_ROOT_NODE_SZ * sqrt(3.0f), gConeTheta) + FLOAT_EPSILON))), totalColor.rgb, isFiniteDist ? 1.0f : saturate((totalColor.a - gAlphaClampValue) * gAlphaMultiplier));
+	return lerp(gEnvironmentMap.SampleLevel(samEnvMap, d, getEnvMipMapLvl(enclosingSvoLevelIdxEx(coneRadius(SVO_ROOT_NODE_SZ * sqrt(3.0f), gConeTheta) + FLOAT_EPSILON))), totalColor.rgb, isFiniteDist ? 1.0f - saturate((totalColor.a - gAlphaClampValue) * gAlphaMultiplier) : 0.0f);
 }

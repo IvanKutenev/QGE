@@ -105,9 +105,9 @@ struct Object {
 class MeshManager
 {
 private:
-	MeshManager::~MeshManager();
-
 	std::vector<FBXLoader*> pFbxLoader;
+
+  std::map<std::wstring, ID3D11ShaderResourceView*> mTexturePool;
 
 	Object *Meshes;
 	int MeshCount;
@@ -120,12 +120,13 @@ private:
 	int PlanarRefractionTexSize;
 
 	HWND mhMainWnd;
+private:
+  MeshManager::~MeshManager();
 
 	void MeshManager::BuildDynamicCubeMapViews(int MeshIndex);
 	void MeshManager::BuildPlanarRefractionMapViews(int MeshIndex);
 
 	void MeshManager::BuildVertexInputLayout(ID3DX11EffectTechnique* tech);
-
 public:
 	MeshManager::MeshManager(ID3D11Device* device, ID3D11DeviceContext* dc, ID3DX11EffectTechnique* tech, int CubeMapSz, int planarRefrSz);
 

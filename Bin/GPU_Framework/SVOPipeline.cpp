@@ -167,6 +167,7 @@ void SvoPipeline::SvoCastRays()
 	trace_mfxNodesPoolSRV->SetResource(mNodesPoolSRV);
 	trace_mfxVoxelsPoolSRV->SetResource(mVoxelsPoolSRV);
 	trace_mfxVoxelsFlagsSRV->SetResource(mVoxelsFlagsSRV);
+	trace_mfxEnvironmentMapSRV->SetResource(mEnvironmentMapSRV);
 	trace_mfxRayCastedOutputUAV->SetUnorderedAccessView(mRayCastedOutputUAV);
 	trace_mfxSvoRootNodeCenterPosW->SetFloatVector(reinterpret_cast<float*>(&mSvoRootNodeCenterPosW));
 	trace_mfxClientH->SetFloat(mClientH);
@@ -196,7 +197,7 @@ void SvoPipeline::SvoCastReflectionRays()
 	trace_mfxVoxelsFlagsSRV->SetResource(mVoxelsFlagsSRV);
 	trace_mfxReflectionMapUAV->SetUnorderedAccessView(mReflectionMapUAV);
 	trace_mfxReflectionMapMaskUAV->SetUnorderedAccessView(mReflectionMapMaskUAV);
-	trace_mfxReflectionMapMaskSampleLevel->SetInt(REFLECTION_MAP_MASK_SAMPLE_LEVEL);
+	trace_mfxReflectionMapMaskSampleLevel->SetInt(max(REFLECTION_MAP_MASK_SAMPLE_LEVEL, 1));
 	trace_mfxSvoRootNodeCenterPosW->SetFloatVector(reinterpret_cast<float*>(&mSvoRootNodeCenterPosW));
 	trace_mfxSvoMinAveragingLevelIdx->SetInt(SVO_MIN_AVG_LEVEL_IDX);
 	trace_mfxClientH->SetFloat(mClientH);
@@ -239,15 +240,15 @@ void SvoPipeline::SvoTraceReflectionCones()
 	trace_mfxInvProj->SetMatrix(reinterpret_cast<float*>(&XMMatrixInverse(&XMMatrixDeterminant(mCamera.Proj()), mCamera.Proj())));
 	trace_mfxInvView->SetMatrix(reinterpret_cast<float*>(&XMMatrixInverse(&XMMatrixDeterminant(mCamera.View()), mCamera.View())));
 	trace_mfxNormalDepthMapSRV->SetResource(mNormalDepthMapSRV);
-	trace_mfxReflectionMapMaskSampleLevel->SetInt(REFLECTION_MAP_MASK_SAMPLE_LEVEL);
-	trace_mfxConeTheta->SetFloat(0.01);
-	trace_mfxMaxStepMultiplier->SetFloat(1.0);
-	trace_mfxMinStepMultiplier->SetFloat(0.5);
-	trace_mfxWeightMultiplier->SetFloat(0.25f);
-	trace_mfxAlphaClampValue->SetFloat(0.5f);
-	trace_mfxAlphaMultiplier->SetFloat(2.5f);
-	trace_mfxEnvironmentMapMipsCount->SetFloat(10.0f);
-	trace_mfxMaxIterCount->SetInt(64);
+	trace_mfxReflectionMapMaskSampleLevel->SetInt(max(REFLECTION_MAP_MASK_SAMPLE_LEVEL, 1));
+	trace_mfxConeTheta->SetFloat(CONE_THETA);
+	trace_mfxMaxStepMultiplier->SetFloat(MAX_STEP_MULTIPLIER);
+	trace_mfxMinStepMultiplier->SetFloat(MIN_STEP_MULTIPLIER);
+	trace_mfxWeightMultiplier->SetFloat(WEIGHT_MULTIPLIER);
+	trace_mfxAlphaClampValue->SetFloat(ALPHA_CLAMP_VALUE);
+	trace_mfxAlphaMultiplier->SetFloat(ALPHA_MULTIPLIER);
+	trace_mfxEnvironmentMapMipsCount->SetFloat(ENV_MAP_MIP_LEVELS_COUNT);
+	trace_mfxMaxIterCount->SetInt(MAX_ITER_COUNT);
 
 	D3DX11_TECHNIQUE_DESC techDesc;
 	mTraceReflectionConesTech->GetDesc(&techDesc);
@@ -438,7 +439,7 @@ void SvoPipeline::BuildViews()
 	ZeroMemory(&rayCastOutTexDesc, sizeof(rayCastOutTexDesc));
 	rayCastOutTexDesc.Width = mClientW;
 	rayCastOutTexDesc.Height = mClientH;
-	rayCastOutTexDesc.MipLevels = REFLECTION_MAP_MASK_SAMPLE_LEVEL + 1;
+	rayCastOutTexDesc.MipLevels = max(REFLECTION_MAP_MASK_SAMPLE_LEVEL, 1) + 1;
 	rayCastOutTexDesc.ArraySize = 1;
 	rayCastOutTexDesc.Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
 	rayCastOutTexDesc.SampleDesc.Count = 1;
@@ -456,7 +457,7 @@ void SvoPipeline::BuildViews()
 	ZeroMemory(&reflectionMapMaskUavDesc, sizeof(reflectionMapMaskUavDesc));
 	reflectionMapMaskUavDesc.Format = DXGI_FORMAT_UNKNOWN;
 	reflectionMapMaskUavDesc.ViewDimension = D3D11_UAV_DIMENSION_TEXTURE2D;
-	reflectionMapMaskUavDesc.Texture2D.MipSlice = REFLECTION_MAP_MASK_SAMPLE_LEVEL;
+	reflectionMapMaskUavDesc.Texture2D.MipSlice = max(REFLECTION_MAP_MASK_SAMPLE_LEVEL, 1);
 
 	HR(md3dDevice->CreateUnorderedAccessView(mRayCastedOutput, &reflectionMapMaskUavDesc, &mReflectionMapMaskUAV));
 	
@@ -472,7 +473,7 @@ void SvoPipeline::BuildViews()
 	ZeroMemory(&rayCastOutCopyTexDesc, sizeof(rayCastOutCopyTexDesc));
 	rayCastOutCopyTexDesc.Width = mClientW;
 	rayCastOutCopyTexDesc.Height = mClientH;
-	rayCastOutCopyTexDesc.MipLevels = REFLECTION_MAP_MASK_SAMPLE_LEVEL + 1;
+	rayCastOutCopyTexDesc.MipLevels = max(REFLECTION_MAP_MASK_SAMPLE_LEVEL, 1) + 1;
 	rayCastOutCopyTexDesc.ArraySize = 1;
 	rayCastOutCopyTexDesc.Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
 	rayCastOutCopyTexDesc.SampleDesc.Count = 1;
@@ -490,7 +491,7 @@ void SvoPipeline::BuildViews()
 	reflectionMapMaskSrvDesc.Format = DXGI_FORMAT_UNKNOWN;
 	reflectionMapMaskSrvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
 	reflectionMapMaskSrvDesc.Texture2D.MipLevels = 1;
-	reflectionMapMaskSrvDesc.Texture2D.MostDetailedMip = REFLECTION_MAP_MASK_SAMPLE_LEVEL;
+	reflectionMapMaskSrvDesc.Texture2D.MostDetailedMip = max(REFLECTION_MAP_MASK_SAMPLE_LEVEL, 1);
 	HR(md3dDevice->CreateShaderResourceView(mRayCastedOutputCopy, &reflectionMapMaskSrvDesc, &mReflectionMapMaskSRV));
 
 	D3D11_SHADER_RESOURCE_VIEW_DESC reflectionMapSrvDesc;

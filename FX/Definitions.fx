@@ -67,8 +67,8 @@ static const float offset_X = SMAP_DX;
 static const float offset_Y = SMAP_DX;
 static const float offset_Z = SMAP_DX;
 
-static const float PCF_KERNEL_SZ = -1;// Example: -1 -> 3x3 PCF blur, -4 -> 9x9 PCF blur, x (x<0) -> (abs(x)*2+1)x(abs(x)*2+1) PCF blur
-static const float BLOCKER_FINDER_KERNEL_SZ = -1;// -||-
+static const float PCF_KERNEL_SZ = -2;// Example: -1 -> 3x3 PCF blur, -4 -> 9x9 PCF blur, x (x<0) -> (abs(x)*2+1)x(abs(x)*2+1) PCF blur
+static const float BLOCKER_FINDER_KERNEL_SZ = -2;// -||-
 
 static const float DEPTH_BIAS = 0.009f;
 static const float NORMAL_OFFSET = 0.5f;

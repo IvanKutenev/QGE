@@ -1,0 +1,398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="QGE_Core">
+    <Position X="0.5" Y="2.25" Width="2.75" />
+    <AssociationLine Name="mTimer" Type="GameTimer" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.25" Y="10.312" />
+        <Point X="4.875" Y="10.312" />
+        <Point X="4.875" Y="14.25" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>FAAJOABFEAAgAAAKQ4AUAgIAghIyIAJMLKgDAEACBAo=</HashCode>
+      <FileName>Bin\Core\QGE_Core.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mTimer" />
+      <Field Name="pGUI" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="QGE_GPU_Framework">
+    <Position X="6.75" Y="4.5" Width="3" />
+    <Members>
+      <Field Name="pGameLogic" Hidden="true" />
+    </Members>
+    <AssociationLine Name="mCamera" Type="Camera" FixedFromPoint="true">
+      <Path>
+        <Point X="9.75" Y="4.725" />
+        <Point X="11.75" Y="4.725" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="pMeshManager" Type="MeshManager" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9.75" Y="35.166" />
+        <Point X="31.542" Y="35.166" Type="JumpStart" />
+        <Point X="31.708" Y="35.166" Type="JumpEnd" />
+        <Point X="37.542" Y="35.166" Type="JumpStart" />
+        <Point X="37.708" Y="35.166" Type="JumpEnd" />
+        <Point X="40.542" Y="35.166" Type="JumpStart" />
+        <Point X="40.708" Y="35.166" Type="JumpEnd" />
+        <Point X="43.542" Y="35.166" Type="JumpStart" />
+        <Point X="43.708" Y="35.166" Type="JumpEnd" />
+        <Point X="46.386" Y="35.166" Type="JumpStart" />
+        <Point X="46.552" Y="35.166" Type="JumpEnd" />
+        <Point X="51.438" Y="35.166" />
+        <Point X="51.438" Y="18.939" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.099" Y="0.06" Height="0.182" Width="1.177" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="pSSLR" Type="SSLR" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9.75" Y="26.938" />
+        <Point X="17.288" Y="26.938" />
+        <Point X="17.288" Y="22.922" />
+        <Point X="19.167" Y="22.922" Type="JumpStart" />
+        <Point X="19.333" Y="22.922" Type="JumpEnd" />
+        <Point X="21" Y="22.922" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>KqBojW+QBwxo7vrp/gv9yYo6ip0tNprqamiP+e2enf0=</HashCode>
+      <FileName>Bin\GPU_Framework\QGE_GPU_Framework.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mDirLight" />
+      <Field Name="mSpotLight" />
+      <Field Name="mPointLight" />
+      <Field Name="mCamera" />
+      <Field Name="mCubeMapCamera" />
+      <Field Name="pEnvMap" />
+      <Field Name="pMeshManager" />
+      <Field Name="pTerrain" />
+      <Field Name="pPlanarWaterSurface" />
+      <Field Name="pSM" />
+      <Field Name="dirLightCams" />
+      <Field Name="spotLightCams" />
+      <Field Name="pointLightCams" />
+      <Field Name="pOIT_PPLL" />
+      <Field Name="pOIT" />
+      <Field Name="pSPH" />
+      <Field Name="pGpuCollision" />
+      <Field Name="pRenderStates" />
+      <Field Name="pSSLR" />
+      <Field Name="pSsao" />
+      <Field Name="pGI" />
+      <Field Name="pVolFX" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Camera">
+    <Position X="11.75" Y="4.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>QQQSicEABiAAAJEQRCAAUQAEwAIBohBwxAVUAsAgAgI=</HashCode>
+      <FileName>Bin\GPU_Framework\Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Terrain">
+    <Position X="14.75" Y="4.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>YWEdAKmiCQA4CjCpAAAAiBJCEQEhJggAgWAJc8MIMAQ=</HashCode>
+      <FileName>Bin\GPU_Framework\Terrain.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VolumetricEffect">
+    <Position X="24" Y="4.5" Width="2.75" />
+    <AssociationLine Name="mCamera" Type="Camera" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.812" Y="4.5" />
+        <Point X="24.812" Y="3.309" />
+        <Point X="13.062" Y="3.309" />
+        <Point X="13.062" Y="4.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="pBlurFilter" Type="BlurFilter" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="25.25" Y="4.5" />
+        <Point X="25.25" Y="3.661" />
+        <Point X="29.979" Y="3.661" Type="JumpStart" />
+        <Point X="30.145" Y="3.661" Type="JumpEnd" />
+        <Point X="34.542" Y="3.661" Type="JumpStart" />
+        <Point X="34.708" Y="3.661" Type="JumpEnd" />
+        <Point X="75.75" Y="3.661" />
+        <Point X="75.75" Y="4.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="pRenderStates" Type="RenderStates" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="25.93" Y="4.5" />
+        <Point X="25.93" Y="3.919" />
+        <Point X="29.979" Y="3.919" Type="JumpStart" />
+        <Point X="30.145" Y="3.919" Type="JumpEnd" />
+        <Point X="34.542" Y="3.919" Type="JumpStart" />
+        <Point X="34.708" Y="3.919" Type="JumpEnd" />
+        <Point X="55.75" Y="3.919" />
+        <Point X="55.75" Y="4.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AsRqJGAIYEkqAmAKmCQYBgA4gCAgLhDAQECGGAEQKQg=</HashCode>
+      <FileName>Bin\GPU_Framework\VolumetricEffect.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mCamera" />
+      <Field Name="pBlurFilter" />
+      <Field Name="pRenderStates" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SSLR">
+    <Position X="21" Y="4.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>QYCRgwmAoBFrRoQdZsRJIQUoFABpEiFgQMC7AIQCBQA=</HashCode>
+      <FileName>Bin\GPU_Framework\SSLR.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ssao">
+    <Position X="17.75" Y="4.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>MBJQCABYA4EPQgwIEAAIGEQIEYEgEgACgAIESgAFBAA=</HashCode>
+      <FileName>Bin\GPU_Framework\Ssao.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SPH">
+    <Position X="27" Y="4.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>O+Y/OAhWqz8IMkYJwKQLBxkJt5t5vRVvvydyBMWQAsA=</HashCode>
+      <FileName>Bin\GPU_Framework\SPH.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="pBlurFilter" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OIT">
+    <Position X="39.25" Y="4.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>EEAgAgAAAIECAgQIAAAIgAAIiAQACoDgAAAAQAAABAQ=</HashCode>
+      <FileName>Bin\GPU_Framework\OIT.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="pRenderStates" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GUI">
+    <Position X="0.5" Y="14.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAE2EgAAIIAAhAIAABBUAYAUogQASQECAIMI=</HashCode>
+      <FileName>Bin\GUI\GUI.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PPLL">
+    <Position X="36.25" Y="4.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAKIEgAgQIAIAIAAQEAAAAGgBAgQAAQAAggAE=</HashCode>
+      <FileName>Bin\GPU_Framework\PPLL.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GlobalIllumination">
+    <Position X="33.25" Y="4.5" Width="2.75" />
+    <AssociationLine Name="mCamera" Type="Camera" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="34.625" Y="4.5" />
+        <Point X="34.625" Y="3.072" />
+        <Point X="12.062" Y="3.072" />
+        <Point X="12.062" Y="4.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>BOQsAAQB6thEJkEpWggIBNIUKgDiIlAKUESAHAAwDSg=</HashCode>
+      <FileName>Bin\GPU_Framework\GlobalIllumination.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mCamera" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GpuCollision">
+    <Position X="30.25" Y="4.5" Width="2.75" />
+    <AssociationLine Name="mCamera" Type="Camera" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="30.25" Y="14.027" />
+        <Point X="30.062" Y="14.027" />
+        <Point X="30.062" Y="3.492" />
+        <Point X="24.896" Y="3.492" Type="JumpStart" />
+        <Point X="24.729" Y="3.492" Type="JumpEnd" />
+        <Point X="14.062" Y="3.492" />
+        <Point X="14.062" Y="4.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>UeSJBqCFiEgwAQlBBioJjACgAgboBoq3kAnQeEAcihU=</HashCode>
+      <FileName>Bin\GPU_Framework\GPUCollision.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="pMeshManager" />
+      <Field Name="mCamera" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ShadowMapping">
+    <Position X="52.25" Y="4.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>iACAAAABAABwRIBAABMAAi6AMAQlIgAXYAAJCQjJAOI=</HashCode>
+      <FileName>Bin\GPU_Framework\ShadowMapping.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MeshManager">
+    <Position X="48.75" Y="4.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AgABgFAQQMJ4YEiLLBKAAxXAYbYBAAkxIgJAEmAMgCE=</HashCode>
+      <FileName>Bin\GPU_Framework\MeshManager.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Meshes" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RenderStates">
+    <Position X="55.5" Y="4.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>ACgAREAAAAIACQIAAUAAAQAAAAAIAAA1AAAgAAIAAAA=</HashCode>
+      <FileName>Bin\GPU_Framework\RenderStates.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlanarWaterSurface">
+    <Position X="45.25" Y="4.5" Width="2.75" />
+    <AssociationLine Name="pMeshManager" Type="MeshManager" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="47.688" Y="18.17" />
+        <Point X="47.688" Y="18.875" />
+        <Point X="48.75" Y="18.875" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AEZAIACJABBAkEkYMKAJACIASTEIxwoAAhs1YZYEgCo=</HashCode>
+      <FileName>Bin\GPU_Framework\PlanarWaterSurface.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="pMeshManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EnvironmentMap">
+    <Position X="42.25" Y="4.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AABEASAAAAAoCgACAAAIAAAAAAgEAwAAAAAAICAAAAA=</HashCode>
+      <FileName>Bin\GPU_Framework\EnvironmentMap.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameTimer">
+    <Position X="3.75" Y="14.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AhAAAAgAACAABAAJAAAIAgAAAAAAAAUAIAAAAAAAQQA=</HashCode>
+      <FileName>Bin\Common\GameTimer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ParticleSystem">
+    <Position X="59" Y="4.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>IASE5AgAABhJRoKCaECIAQMAEQQEJggQaAuIOKAIiUw=</HashCode>
+      <FileName>Bin\GPU_Framework\ParticleSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FBXLoader">
+    <Position X="62.25" Y="4.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AwBACAAAAAABABAAABEAAAAIAQIAACBAAQQCAiAAQAA=</HashCode>
+      <FileName>Bin\GPU_Framework\FBXLoader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlurFilter">
+    <Position X="74.75" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAABAEANAAAAAAAAAAEgAEAAAAAAAAAAKAEAAI=</HashCode>
+      <FileName>Bin\GPU_Framework\BlurFilter.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="pBlurEffect" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BlurEffect">
+    <Position X="71" Y="4.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AACgIAAAAAAEAAAAAAIAAAgAAGACABAAAUAAAAAEIAA=</HashCode>
+      <FileName>Bin\GPU_Framework\Blur.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GeometryGenerator">
+    <Position X="71" Y="9" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="GeometryGenerator::Vertex">
+        <TypeIdentifier>
+          <NewMemberFileName>Bin\Common\GeometryGenerator.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="GeometryGenerator::MeshData">
+        <TypeIdentifier>
+          <NewMemberFileName>Bin\Common\GeometryGenerator.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ABAAgkAAQAAAAAAIAAQAAgAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bin\Common\GeometryGenerator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="d3dHelper">
+    <Position X="71" Y="16.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAQCAAAAAAAAAAAAAAAAAAAAAAAAgg=</HashCode>
+      <FileName>Bin\Common\d3dUtil.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MathHelper">
+    <Position X="71" Y="20.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAABAABABAIAAAAEAAiIAAAAAAIEAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Bin\Common\MathHelper.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="DirectionalLight">
+    <Position X="11.75" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAQAAAAAAAgAAAiAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Bin\Common\LightHelper.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="PointLight">
+    <Position X="11.75" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAACgAgAgAAAAAAAACAAAAAAAAAIEAAAAA=</HashCode>
+      <FileName>Bin\Common\LightHelper.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="SpotLight">
+    <Position X="11.75" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAABACgAgAiAAAAAAAACAAAAAAAgAAEAAAAA=</HashCode>
+      <FileName>Bin\Common\LightHelper.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Object">
+    <Position X="65.5" Y="4.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AGAAeABCATCIBAIAAAAAAAkAQYWAgAgOIYIBEGBoKAA=</HashCode>
+      <FileName>Bin\GPU_Framework\MeshManager.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mMaterial" />
+    </ShowAsAssociation>
+  </Struct>
+  <Struct Name="Material">
+    <Position X="69" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAgAAAAABAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Bin\Common\LightHelper.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

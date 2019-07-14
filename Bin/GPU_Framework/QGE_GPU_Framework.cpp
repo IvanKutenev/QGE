@@ -501,8 +501,8 @@ bool QGE_GPU_Framework::Init()
 	///SSAO (screen-space ambient occlusion)
 	pSsao = new Ssao(md3dDevice, md3dImmediateContext, mClientWidth, mClientHeight, mCamera.GetFovY(), mCamera.GetFarZ());
 	///SSLR (screen-space local reflections) - screen-space raytracer able to produce correct reflections
-	pSSLR = new SSLR(md3dDevice, md3dImmediateContext, mClientWidth, mClientHeight, mOffscreenSRV, pSsao->GetNormalDepthSRV(),
-		mWSPositionMapSRV, mSpecularMapSRV, true, 4, WEIGHTING_MODE_GLOSS, true);
+	//pSSLR = new SSLR(md3dDevice, md3dImmediateContext, mClientWidth, mClientHeight, mOffscreenSRV, pSsao->GetNormalDepthSRV(),
+	//	mWSPositionMapSRV, mSpecularMapSRV, true, 4, WEIGHTING_MODE_GLOSS, true);
 	///Rendering states
 	pRenderStates = new RenderStates(md3dDevice);
 	///Meshes manager - does all work with meshes handling
@@ -521,7 +521,7 @@ bool QGE_GPU_Framework::Init()
 	pGI = new GlobalIllumination(md3dDevice, md3dImmediateContext, mFX, mCamera);
 	///Volumetric effects - simulates effects connected with light transport through medium with specified density distribution;
 	///uses cascaded voxel grids for compuattion speed imporvement, DOES NOT WORK WITHOUT instance of "GlobalIllumination" class!
-	//pVolFX = new VolumetricEffect(md3dDevice, md3dImmediateContext, mClientHeight, mClientWidth, pGI->GetGridCenterPosW(), pGI->GetInvertedGridCellSizes(), pGI->GetGridCellSizes(), mCamera);
+	pVolFX = new VolumetricEffect(md3dDevice, md3dImmediateContext, mClientHeight, mClientWidth, pGI->GetGridCenterPosW(), pGI->GetInvertedGridCellSizes(), pGI->GetGridCellSizes(), mCamera);
 	///GPU collision - simulates collision on GPU
 	//pGpuCollision = new GpuCollision(md3dDevice, md3dImmediateContext, mFX, pMeshManager);
 	///Environment map
@@ -637,22 +637,22 @@ bool QGE_GPU_Framework::Init()
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//TODO: Add mesh creation code here////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Example:
-	XMMATRIX carWorld = XMMatrixScaling(12.0f, 12.0f, 12.0f);
-	pMeshManager->CreateFbxScene(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST, BuffersOptimization::BUFFERS_OPTIMIZATION_DISABLE, DrawType::INDEXED_DRAW, &carWorld, mBasicTech, "Models\\Interceptor.fbx",
-		"Models\\Interceptor.fbx", false, false, 1, ReflectionType::REFLECTION_TYPE_SVO_CONE_TRACING, RefractionType::REFRACTION_TYPE_NONE);
+	XMMATRIX carWorld = XMMatrixTranslation(-800, 0, -200) * XMMatrixScaling(0.09f, 0.09f, 0.09f) * XMMatrixRotationY(-XM_PI / 2.0f);
+	pMeshManager->CreateFbxScene(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST, BuffersOptimization::BUFFERS_OPTIMIZATION_DISABLE, DrawType::INDEXED_DRAW, &carWorld, mBasicTech, "Models\\sponza.fbx",
+		"Models\\sponza.fbx", false, false, 1, ReflectionType::REFLECTION_TYPE_SVO_CONE_TRACING, RefractionType::REFRACTION_TYPE_NONE);
 	
-	XMMATRIX gridWorld = I;
+	/*XMMATRIX gridWorld = I;
 	XMMATRIX gridTexTransform = XMMatrixScaling(5.0f, 5.0f, 1.0f);
 	std::vector<std::wstring>GridTexFilenames = {L"Textures\\floor.jpg"};
 	pMeshManager->CreateGrid(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST, DrawType::INDEXED_DRAW, &gridTexTransform, &gridWorld, mBasicTech,
 		GridTexFilenames, static_cast<std::vector<std::wstring>>(nullvec), 1, true, false, false, false, false, false, 1,
-		ReflectionType::REFLECTION_TYPE_SVO_CONE_TRACING, RefractionType::REFRACTION_TYPE_NONE,	Materials::Plastic_Cellulose, 200.0f, 200.0f, 100, 100);
+		ReflectionType::REFLECTION_TYPE_SVO_CONE_TRACING, RefractionType::REFRACTION_TYPE_NONE,	Materials::Plastic_Cellulose, 200.0f, 200.0f, 100, 100);*/
 	
-	XMMATRIX sphereWorld = XMMatrixTranslation(-50, 15, -50);
+	/*XMMATRIX sphereWorld = XMMatrixTranslation(-50, 15, -50);
 	XMMATRIX sphereTexTransform = I;
 	pMeshManager->CreateSphere(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST, DrawType::INDEXED_DRAW, &sphereTexTransform, &sphereWorld, mBasicTech,
 		static_cast<std::vector<std::wstring>>(nullvec), static_cast<std::vector<std::wstring>>(nullvec), 0, false, false, false, false, false, false, 1,
-		ReflectionType::REFLECTION_TYPE_SVO_CONE_TRACING, RefractionType::REFRACTION_TYPE_NONE, Materials::Metal_Silver * Materials::Color_grey, 15.0f, 15, 15);
+		ReflectionType::REFLECTION_TYPE_SVO_CONE_TRACING, RefractionType::REFRACTION_TYPE_NONE, Materials::Metal_Silver * Materials::Color_grey, 15.0f, 15, 15);*/
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//TODO: Add here buffers mapping code( map created buffers to get data stored in it):////////////////////////////////////////////////////////////////////////////////////////////////

@@ -192,6 +192,9 @@
     <ClCompile Include="Bin\GPU_Framework\SVOPipeline.cpp">
       <Filter>Bin\GPU_Framework</Filter>
     </ClCompile>
+    <ClCompile Include="Bin\Common\md5.cpp">
+      <Filter>Bin\Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bin\Core\QGE_Core.h">
@@ -526,6 +529,9 @@
     </ClInclude>
     <ClInclude Include="Bin\GPU_Framework\SVOPipeline.h">
       <Filter>Bin\GPU_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Bin\Common\md5.h">
+      <Filter>Bin\Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

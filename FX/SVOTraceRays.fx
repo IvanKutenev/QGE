@@ -75,7 +75,15 @@ void CastRaysCS(int3 dispatchThreadID : SV_DispatchThreadID)
 	//get view ray origin
 	float3 o = gEyePosW + d * FLOAT_EPSILON;
 	//trace ray using octree and return color of intersected octree geometry
-	gRayCastedOutputRW[dispatchThreadID.xy] = float4(UnpackUnormFloat4(traceRay(o, d, gSvoRayCastLevelIdx + 1).colorMask).xyz, 1.0f);
+	float4 res = traceRayPos(o, d, gSvoRayCastLevelIdx + 1);
+	if (res.w > 0.0f)
+	{
+		gRayCastedOutputRW[dispatchThreadID.xy] = SampleOctree(res.xyz, gSvoRayCastLevelIdx, true);
+	}
+	else
+	{
+		gRayCastedOutputRW[dispatchThreadID.xy] = gEnvironmentMap.SampleLevel(samEnvMap, d, 0.0f);
+	}
 }
 
 technique11 CastRaysTech
@@ -124,20 +132,20 @@ void CastReflectionRaysCS(int3 dispatchThreadID : SV_DispatchThreadID)
 	
 	float3 d = normalize(reflect(PosW - gEyePosW, NormalW));
 	float3 o = PosW + 2.0f * NormalW * getSvoVoxelSize(gSvoRayCastLevelIdx);
-	float4 res = traceReflectionPos(o, d, gSvoRayCastLevelIdx + 1);
+	float4 res = traceRayPos(o, d, gSvoRayCastLevelIdx + 1);
 	if (res.w > 0.0f)
 	{
-		gReflectionMapMaskRW[clamp((dispatchThreadID.xy >> gReflectionMapMaskSampleLevel) + int2(0, 1), int2(0, 0), float2(gClientW, gClientH) / pow(2.0f, gReflectionMapMaskSampleLevel))] = 1.0f;
-		gReflectionMapMaskRW[clamp((dispatchThreadID.xy >> gReflectionMapMaskSampleLevel) + int2(0, 0), int2(0, 0), float2(gClientW, gClientH) / pow(2.0f, gReflectionMapMaskSampleLevel))] = 1.0f;
-		gReflectionMapMaskRW[clamp((dispatchThreadID.xy >> gReflectionMapMaskSampleLevel) + int2(0, -1), int2(0, 0), float2(gClientW, gClientH) / pow(2.0f, gReflectionMapMaskSampleLevel))] = 1.0f;
+    gReflectionMapMaskRW[clamp((dispatchThreadID.xy >> gReflectionMapMaskSampleLevel) + int2(0, 1), int2(0, 0), float2(gClientW, gClientH) / pow(2.0f, gReflectionMapMaskSampleLevel))] = 1.0f;
+    gReflectionMapMaskRW[clamp((dispatchThreadID.xy >> gReflectionMapMaskSampleLevel) + int2(0, 0), int2(0, 0), float2(gClientW, gClientH) / pow(2.0f, gReflectionMapMaskSampleLevel))] = 1.0f;
+    gReflectionMapMaskRW[clamp((dispatchThreadID.xy >> gReflectionMapMaskSampleLevel) + int2(0, -1), int2(0, 0), float2(gClientW, gClientH) / pow(2.0f, gReflectionMapMaskSampleLevel))] = 1.0f;
 
-		gReflectionMapMaskRW[clamp((dispatchThreadID.xy >> gReflectionMapMaskSampleLevel) + int2(1, 1), int2(0, 0), float2(gClientW, gClientH) / pow(2.0f, gReflectionMapMaskSampleLevel))] = 1.0f;
-		gReflectionMapMaskRW[clamp((dispatchThreadID.xy >> gReflectionMapMaskSampleLevel) + int2(1, 0), int2(0, 0), float2(gClientW, gClientH) / pow(2.0f, gReflectionMapMaskSampleLevel))] = 1.0f;
-		gReflectionMapMaskRW[clamp((dispatchThreadID.xy >> gReflectionMapMaskSampleLevel) + int2(1, -1), int2(0, 0), float2(gClientW, gClientH) / pow(2.0f, gReflectionMapMaskSampleLevel))] = 1.0f;
+    gReflectionMapMaskRW[clamp((dispatchThreadID.xy >> gReflectionMapMaskSampleLevel) + int2(1, 1), int2(0, 0), float2(gClientW, gClientH) / pow(2.0f, gReflectionMapMaskSampleLevel))] = 1.0f;
+    gReflectionMapMaskRW[clamp((dispatchThreadID.xy >> gReflectionMapMaskSampleLevel) + int2(1, 0), int2(0, 0), float2(gClientW, gClientH) / pow(2.0f, gReflectionMapMaskSampleLevel))] = 1.0f;
+    gReflectionMapMaskRW[clamp((dispatchThreadID.xy >> gReflectionMapMaskSampleLevel) + int2(1, -1), int2(0, 0), float2(gClientW, gClientH) / pow(2.0f, gReflectionMapMaskSampleLevel))] = 1.0f;
 
-		gReflectionMapMaskRW[clamp((dispatchThreadID.xy >> gReflectionMapMaskSampleLevel) + int2(-1, 1), int2(0, 0), float2(gClientW, gClientH) / pow(2.0f, gReflectionMapMaskSampleLevel))] = 1.0f;
-		gReflectionMapMaskRW[clamp((dispatchThreadID.xy >> gReflectionMapMaskSampleLevel) + int2(-1, 0), int2(0, 0), float2(gClientW, gClientH) / pow(2.0f, gReflectionMapMaskSampleLevel))] = 1.0f;
-		gReflectionMapMaskRW[clamp((dispatchThreadID.xy >> gReflectionMapMaskSampleLevel) + int2(-1, -1), int2(0, 0), float2(gClientW, gClientH) / pow(2.0f, gReflectionMapMaskSampleLevel))] = 1.0f;
+    gReflectionMapMaskRW[clamp((dispatchThreadID.xy >> gReflectionMapMaskSampleLevel) + int2(-1, 1), int2(0, 0), float2(gClientW, gClientH) / pow(2.0f, gReflectionMapMaskSampleLevel))] = 1.0f;
+    gReflectionMapMaskRW[clamp((dispatchThreadID.xy >> gReflectionMapMaskSampleLevel) + int2(-1, 0), int2(0, 0), float2(gClientW, gClientH) / pow(2.0f, gReflectionMapMaskSampleLevel))] = 1.0f;
+    gReflectionMapMaskRW[clamp((dispatchThreadID.xy >> gReflectionMapMaskSampleLevel) + int2(-1, -1), int2(0, 0), float2(gClientW, gClientH) / pow(2.0f, gReflectionMapMaskSampleLevel))] = 1.0f;
 
 		gReflectionMapRW[dispatchThreadID.xy] = res;
 	}

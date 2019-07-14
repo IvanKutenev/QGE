@@ -117,7 +117,6 @@ void FBXLoader::GetMeshesListByRootNode(FbxNode* pRootNode)
 						mNodeList[i].mMeshes[j].mMesh->GenerateNormals(RewriteNormals.first, RewriteNormals.second);
 					}
 				}
-				
 				mNodeList[i].mGlobalTransform = GetNodeGlobalTransform(mNodeList[i].mNode);
 			}
 		}

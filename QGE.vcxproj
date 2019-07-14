@@ -142,6 +142,7 @@
     <ClCompile Include="Bin\Common\GeometryGenerator.cpp" />
     <ClCompile Include="Bin\Common\LightHelper.cpp" />
     <ClCompile Include="Bin\Common\MathHelper.cpp" />
+    <ClCompile Include="Bin\Common\md5.cpp" />
     <ClCompile Include="Bin\Core\QGE_Core.cpp" />
     <ClCompile Include="Bin\CPU_Framework\Car.cpp" />
     <ClCompile Include="Bin\CPU_Framework\GameLogic.cpp" />
@@ -234,6 +235,7 @@
     <ClInclude Include="Bin\Common\GeometryGenerator.h" />
     <ClInclude Include="Bin\Common\LightHelper.h" />
     <ClInclude Include="Bin\Common\MathHelper.h" />
+    <ClInclude Include="Bin\Common\md5.h" />
     <ClInclude Include="Bin\Common\PIXPlugin.h" />
     <ClInclude Include="Bin\Common\resource.h" />
     <ClInclude Include="Bin\Common\rmxfguid.h" />

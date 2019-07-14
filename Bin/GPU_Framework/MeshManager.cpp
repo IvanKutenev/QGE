@@ -284,20 +284,50 @@ void MeshManager::CreateFbxScene(D3D_PRIMITIVE_TOPOLOGY primitiveTopology, Buffe
 					if (pFbxLoader[pFbxLoader.size() - 1]->mNodeList[c].mMeshes[f].mTextures[i].TexType == TEX_TYPE_DIFFUSE_MAP ||
 						pFbxLoader[pFbxLoader.size() - 1]->mNodeList[c].mMeshes[f].mTextures[i].TexType == TEX_TYPE_TRANSPARENT_MAP)
 					{
-						Meshes[MeshCount - 1].mExtDiffuseMapArraySRV[TexCount] = d3dHelper::CreateTexture2DSRVW(md3dDevice, m3dDeviceContext, Filenames[i]);
+            ID3D11ShaderResourceView* tex;
+            if (mTexturePool.find(Filenames[i]) != mTexturePool.end())
+            {
+              tex = mTexturePool[Filenames[i]];
+            }
+            else
+            {
+              tex = d3dHelper::CreateTexture2DSRVW(md3dDevice, m3dDeviceContext, Filenames[i]);
+              mTexturePool.insert({ Filenames[i], tex });
+            }
+						Meshes[MeshCount - 1].mExtDiffuseMapArraySRV[TexCount] = tex;
 						Meshes[MeshCount - 1].mTexType[TexCount] = pFbxLoader[pFbxLoader.size() - 1]->mNodeList[c].mMeshes[f].mTextures[i].TexType;
-						Meshes[MeshCount - 1].mUseTextures = true;
+            Meshes[MeshCount - 1].mUseTextures = true;
 						TexCount++;
 					}
 					else if (pFbxLoader[pFbxLoader.size() - 1]->mNodeList[c].mMeshes[f].mTextures[i].TexType == TEX_TYPE_NORMAL_MAP)
 					{
-						Meshes[MeshCount - 1].mNormalMapSRV = d3dHelper::CreateTexture2DSRVW(md3dDevice, m3dDeviceContext, Filenames[i]);
+            ID3D11ShaderResourceView* tex;
+            if (mTexturePool.find(Filenames[i]) != mTexturePool.end())
+            {
+              tex = mTexturePool[Filenames[i]];
+            }
+            else
+            {
+              tex = d3dHelper::CreateTexture2DSRVW(md3dDevice, m3dDeviceContext, Filenames[i]);
+              mTexturePool.insert({ Filenames[i], tex});
+            }
+            Meshes[MeshCount - 1].mNormalMapSRV = tex;
 						Meshes[MeshCount - 1].mUseNormalMapping = true;
 						Meshes[MeshCount - 1].mUseDisplacementMapping = true;
 					}
 					else if (pFbxLoader[pFbxLoader.size() - 1]->mNodeList[c].mMeshes[f].mTextures[i].TexType == TEX_TYPE_SHININESS_MAP)
 					{
-						Meshes[MeshCount - 1].mReflectMapSRV = d3dHelper::CreateTexture2DSRVW(md3dDevice, m3dDeviceContext, Filenames[i]);
+            ID3D11ShaderResourceView* tex;
+            if (mTexturePool.find(Filenames[i]) != mTexturePool.end())
+            {
+              tex = mTexturePool[Filenames[i]];
+            }
+            else
+            {
+              tex = d3dHelper::CreateTexture2DSRVW(md3dDevice, m3dDeviceContext, Filenames[i]);
+              mTexturePool.insert({ Filenames[i], tex });
+            }
+						Meshes[MeshCount - 1].mReflectMapSRV = tex;
 						Meshes[MeshCount - 1].mMaterialType = MaterialType::MTL_TYPE_REFLECT_MAP;
 					}
 				}
@@ -442,8 +472,20 @@ void MeshManager::CreateBox(D3D_PRIMITIVE_TOPOLOGY primitiveTopology, DrawType d
 
 	Meshes[MeshCount - 1].mMeshType = MeshType::PROCEDURAL_MESH;
 
-	if (mUseNormalMapping)
-		Meshes[MeshCount - 1].mNormalMapSRV = d3dHelper::CreateTexture2DSRVW(md3dDevice, m3dDeviceContext, NormalMapFilenames[0].c_str());
+  if (mUseNormalMapping)
+  {
+    ID3D11ShaderResourceView* tex;
+    if (mTexturePool.find(NormalMapFilenames[0].c_str()) != mTexturePool.end())
+    {
+      tex = mTexturePool[NormalMapFilenames[0].c_str()];
+    }
+    else
+    {
+      tex = d3dHelper::CreateTexture2DSRVW(md3dDevice, m3dDeviceContext, NormalMapFilenames[0].c_str());
+      mTexturePool.insert({ NormalMapFilenames[0].c_str(), tex });
+    }
+    Meshes[MeshCount - 1].mNormalMapSRV = tex;
+  }
 	else
 		Meshes[MeshCount - 1].mNormalMapSRV = 0;
 
@@ -569,8 +611,20 @@ void MeshManager::CreateSphere(D3D_PRIMITIVE_TOPOLOGY primitiveTopology, DrawTyp
 
 	Meshes[MeshCount - 1].mMeshType = MeshType::PROCEDURAL_MESH;
 
-	if (mUseNormalMapping)
-		Meshes[MeshCount - 1].mNormalMapSRV = d3dHelper::CreateTexture2DSRVW(md3dDevice, m3dDeviceContext, NormalMapFilenames[0].c_str());
+  if (mUseNormalMapping)
+  {
+    ID3D11ShaderResourceView* tex;
+    if (mTexturePool.find(NormalMapFilenames[0].c_str()) != mTexturePool.end())
+    {
+      tex = mTexturePool[NormalMapFilenames[0].c_str()];
+    }
+    else
+    {
+      tex = d3dHelper::CreateTexture2DSRVW(md3dDevice, m3dDeviceContext, NormalMapFilenames[0].c_str());
+      mTexturePool.insert({ NormalMapFilenames[0].c_str(), tex });
+    }
+    Meshes[MeshCount - 1].mNormalMapSRV = tex;
+  }
 	else
 		Meshes[MeshCount - 1].mNormalMapSRV = 0;
 
@@ -698,8 +752,20 @@ void MeshManager::CreateGrid(D3D_PRIMITIVE_TOPOLOGY primitiveTopology, DrawType 
 
 	Meshes[MeshCount - 1].mMeshType = MeshType::PROCEDURAL_MESH;
 
-	if (mUseNormalMapping)
-		Meshes[MeshCount - 1].mNormalMapSRV = d3dHelper::CreateTexture2DSRVW(md3dDevice, m3dDeviceContext, NormalMapFilenames[0].c_str());
+  if (mUseNormalMapping)
+  {
+    ID3D11ShaderResourceView* tex;
+    if (mTexturePool.find(NormalMapFilenames[0].c_str()) != mTexturePool.end())
+    {
+      tex = mTexturePool[NormalMapFilenames[0].c_str()];
+    }
+    else
+    {
+      tex = d3dHelper::CreateTexture2DSRVW(md3dDevice, m3dDeviceContext, NormalMapFilenames[0].c_str());
+      mTexturePool.insert({ NormalMapFilenames[0].c_str(), tex });
+    }
+    Meshes[MeshCount - 1].mNormalMapSRV = tex;
+  }
 	else
 		Meshes[MeshCount - 1].mNormalMapSRV = 0;
 
@@ -826,8 +892,20 @@ void MeshManager::CreateCylinder(D3D_PRIMITIVE_TOPOLOGY primitiveTopology, DrawT
 
 	Meshes[MeshCount - 1].mMeshType = MeshType::PROCEDURAL_MESH;
 
-	if (mUseNormalMapping)
-		Meshes[MeshCount - 1].mNormalMapSRV = d3dHelper::CreateTexture2DSRVW(md3dDevice, m3dDeviceContext, NormalMapFilenames[0].c_str());
+  if (mUseNormalMapping)
+  {
+    ID3D11ShaderResourceView* tex;
+    if (mTexturePool.find(NormalMapFilenames[0].c_str()) != mTexturePool.end())
+    {
+      tex = mTexturePool[NormalMapFilenames[0].c_str()];
+    }
+    else
+    {
+      tex = d3dHelper::CreateTexture2DSRVW(md3dDevice, m3dDeviceContext, NormalMapFilenames[0].c_str());
+      mTexturePool.insert({ NormalMapFilenames[0].c_str(), tex });
+    }
+    Meshes[MeshCount - 1].mNormalMapSRV = tex;
+  }
 	else
 		Meshes[MeshCount - 1].mNormalMapSRV = 0;
 

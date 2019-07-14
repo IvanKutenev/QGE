@@ -10,7 +10,7 @@
 
 static const float gInfinity = 999999.0f;
 static const float gStepCorrectionCoeff = 1.1f;
-static const float gAttenuation = 0.004f;
+static const float gAttenuation = 0.01f;
 static const float gStepPrecisionCoeff = 0.25f;
 
 struct LightingData
@@ -146,8 +146,8 @@ float SampleDensity(float3 PosW, int cascadeIndex)
 	if (clouds_density < 0.2f)
 		clouds_density = 0.0f;
 	//fog
-	float fog_density = 0.002f;
-	return fog_density + clouds_density;
+	float fog_density = 0.02f;
+  return fog_density + clouds_density;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
